@@ -53,7 +53,8 @@ class SpecialEnchantCommand extends Command{
                               if($args[1] == 0){
                               if(EconomyAPI::getInstance()->myMoney($g) >= 50000){
                                       EconomyAPI::getInstance()->reduceMoney($g, 50000);
-                                        if($this->special == false){
+                                      $cfg = new Config(Main::getAPI()->getDataFolder()."se.yml", Config::YAML);
+                                        if($cfg->get($g->getName()) == false){
                                         $this->special[$g->getName()] = true;
                                         $pl = Main::getAPI();
                                         Main::getAPI()->getScheduler()->scheduleRepeatingTask($task = new ETask($this, $this->id, $g, $pl), 20*1);
@@ -73,7 +74,8 @@ class SpecialEnchantCommand extends Command{
                               if($args[1] == 1){
                               if(EconomyAPI::getInstance()->myMoney($g) >= 100000){
                                       EconomyAPI::getInstance()->reduceMoney($g, 100000);
-                                      if($this->special == false){
+                                      $cfg = new Config(Main::getAPI()->getDataFolder()."se.yml", Config::YAML);
+                                      if($cfg->get($g->getName()) == false){
                                         $this->special[$g->getName()] = true;
                                         $pl = Main::getAPI();
                                         Main::getAPI()->getScheduler()->scheduleRepeatingTask($task = new ETask($this, $this->id, $g, $pl), 20*1);
