@@ -35,7 +35,7 @@ class SpecialEnchantEvent implements Listener{
                 } //12 14 15
                 if($block->getId() == 12){
                                 $e->setDrops([]);
-                                $g->getInventory()->addItem(Item::get(Item::GRASS,0,1));
+                                $g->getInventory()->addItem(Item::get(Item::GLASS,0,1));
                 }
                 if($block->getId() == 15){
                                 $e->setDrops([]);
