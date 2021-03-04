@@ -43,7 +43,7 @@ class ETask extends Task{
                 }
                 if($timer == 0){
                         $this->plugin->special[$g->getName()] = false;
-                        $cfg = new Config($this->getDataFolder()."se.yml", Config::YAML);
+                        $cfg = new Config($this->pl->getDataFolder()."se.yml", Config::YAML);
                         $cfg->set($g->getName(), false);
                         $cfg->save();
                         $this->pl->getScheduler()->cancelTask($this->plugin->id[$g->getName()]);
